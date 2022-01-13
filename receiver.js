@@ -3,9 +3,9 @@ const path = require('path');
 const udp = require('dgram');
 const ws = require('ws');
 const express = require('express');
+const {networkInterfaces} = require('os');
 
-
-const serverName = '192.168.1.72';
+const serverName = networkInterfaces().Ethernet[3].address;
 const serverPort = 12000;
 const port = 3000;
 const wsPort = 8000;

@@ -2,7 +2,8 @@
 #commented line refer to directly creating a websocket to the frontend (latency is an issue)
 #also requires the Stereo Mix audio driver
 import pyaudio
-from socket import *
+import socket
+from socket import AF_INET, SOCK_DGRAM
 #import asyncio
 #import websockets
 
@@ -11,12 +12,13 @@ sample_format = pyaudio.paInt16
 channels = 2
 fs = 44100
 
-serverName = '192.168.1.72'
+serverName = socket.gethostbyname_ex(socket.getfqdn())[2][1]
+print(serverName)
 serverPort = 12000
 wsPort = 8000
 
 p = pyaudio.PyAudio()
-serverSocket = socket(AF_INET, SOCK_DGRAM)
+serverSocket = socket.socket(AF_INET, SOCK_DGRAM)
 
 dev_index = 0
 

@@ -2,7 +2,7 @@
 var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 var sampleRate = 44100;
 var channels = 2;
-var packetsBeforePlay = 2;
+var packetsBeforePlay = 3;
 var bufferTime = (2048/sampleRate) * packetsBeforePlay;
 var myArrayBuffer;
 
